@@ -1,0 +1,13 @@
+node_modules
+.env
+.git
+.gitignore
+README.md
+.eslintrc.js
+.prettierrc
+coverage
+dist
+test-api.sh
+setup.sh
+*.log
+.nyc_output
