@@ -55,15 +55,15 @@ describe('InMemoryTransactionRepository', () => {
 
       await repository.create({
         amount: 100,
-        timestamp: twoMinutesAgo, // Outside range
+        timestamp: twoMinutesAgo,
       });
       await repository.create({
         amount: 200,
-        timestamp: oneMinuteAgo, // Within range
+        timestamp: oneMinuteAgo,
       });
       await repository.create({
         amount: 300,
-        timestamp: now, // Within range
+        timestamp: now,
       });
 
       const transactions = await repository.findByTimeRange(oneMinuteAgo, now);
@@ -93,13 +93,13 @@ describe('InMemoryTransactionRepository', () => {
       const thirtySecondsAgo = new Date(now.getTime() - 30000);
       const twoMinutesAgo = new Date(now.getTime() - 120000);
 
-      // Transaction outside 60s window
+
       await repository.create({
         amount: 1000,
         timestamp: twoMinutesAgo,
       });
 
-      // Transactions within 60s window
+
       await repository.create({
         amount: 100.50,
         timestamp: thirtySecondsAgo,
@@ -120,7 +120,7 @@ describe('InMemoryTransactionRepository', () => {
 
     it('should return zero statistics when no transactions in the last 60 seconds', async () => {
       const twoMinutesAgo = new Date(Date.now() - 120000);
-      
+
       await repository.create({
         amount: 100,
         timestamp: twoMinutesAgo,
