@@ -50,7 +50,7 @@ NODE_ENV=development
 ```
 
 ## 🚀 Uso
-
+Link para API em produção: https://transactions-api-nest-production.up.railway.app/api/docs
 ### Iniciar o servidor
 
 ```bash
